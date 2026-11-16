@@ -8,6 +8,8 @@
         android:label="DrawReality"
         android:supportsRtl="true"
         android:theme="@style/Theme.DrawReality">
+        
+        <!-- Главное меню -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -17,5 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Экран камеры -->
+        <activity
+            android:name=".CameraActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 </manifest>
