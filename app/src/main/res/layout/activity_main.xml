@@ -42,7 +42,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
-                    app:cardCornerRadius="16dp" android:id="@+id/cameraCard"
+                    app:cardCornerRadius="16dp" android:id="@+id/galleryCard" android:id="@+id/cameraCard"
                     app:cardBackgroundColor="@color/card_green"
                     app:cardElevation="0dp">
                     <LinearLayout
@@ -66,7 +66,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
-                    app:cardCornerRadius="16dp" android:id="@+id/cameraCard"
+                    app:cardCornerRadius="16dp" android:id="@+id/galleryCard" android:id="@+id/cameraCard"
                     app:cardBackgroundColor="@color/card_purple"
                     app:cardElevation="0dp">
                     <LinearLayout

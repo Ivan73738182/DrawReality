@@ -20,6 +20,9 @@
             </intent-filter>
         </activity>
 
+        <!-- Экран галереи -->
+        <activity android:name=".GalleryActivity" android:screenOrientation="portrait" />
+
         <!-- Экран камеры -->
         <activity
             android:name=".CameraActivity"

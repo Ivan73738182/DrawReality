@@ -10,14 +10,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Настраиваем нижнее меню
+        // Нижнее меню
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_draw -> {
-                    // Уже на экране рисования (главный экран) — ничего не делаем
-                    true
-                }
+                R.id.nav_draw -> true // Уже здесь
                 R.id.nav_lessons -> {
                     startActivity(Intent(this, LessonsActivity::class.java))
                     true
@@ -30,11 +27,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Кнопка "С Камеры" (переход на камеру)
-        // В разметке мы дали ID карточке cameraCard
-        val cameraCard = findViewById<androidx.cardview.widget.CardView>(R.id.cameraCard)
-        cameraCard.setOnClickListener {
+        // Кнопка "С Камеры"
+        findViewById<androidx.cardview.widget.CardView>(R.id.cameraCard).setOnClickListener {
             startActivity(Intent(this, CameraActivity::class.java))
+        }
+
+        // Кнопка "Из Галереи"
+        findViewById<androidx.cardview.widget.CardView>(R.id.galleryCard).setOnClickListener {
+            startActivity(Intent(this, GalleryActivity::class.java))
         }
     }
 }
