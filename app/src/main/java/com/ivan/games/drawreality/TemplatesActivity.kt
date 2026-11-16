@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class GalleryActivity : AppCompatActivity() {
+class TemplatesActivity : AppCompatActivity() {
 
-    // Список наших картинок для раздела "Аниме"
+    // Твои 8 картинок (аниме)
     private val animeImages = listOf(
         R.drawable.anime_1, R.drawable.anime_2, R.drawable.anime_3,
         R.drawable.anime_4, R.drawable.anime_5, R.drawable.anime_6,
@@ -21,7 +21,7 @@ class GalleryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gallery)
+        setContentView(R.layout.activity_templates)
 
         findViewById<ImageButton>(R.id.btnBack).setOnClickListener {
             finish()
@@ -32,7 +32,6 @@ class GalleryActivity : AppCompatActivity() {
         recyclerView.adapter = GalleryAdapter(animeImages)
     }
 
-    // Внутренний класс адаптера
     private class GalleryAdapter(private val images: List<Int>) : RecyclerView.Adapter<GalleryAdapter.ViewHolder>() {
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {

@@ -10,11 +10,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Нижнее меню
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_draw -> true // Уже здесь
+                R.id.nav_draw -> true
                 R.id.nav_lessons -> {
                     startActivity(Intent(this, LessonsActivity::class.java))
                     true
@@ -32,9 +31,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CameraActivity::class.java))
         }
 
-        // Кнопка "Из Галереи"
+        // Кнопка "Шаблоны" (бывшая "Из Галереи")
         findViewById<androidx.cardview.widget.CardView>(R.id.galleryCard).setOnClickListener {
-            startActivity(Intent(this, GalleryActivity::class.java))
+            startActivity(Intent(this, TemplatesActivity::class.java))
         }
     }
 }

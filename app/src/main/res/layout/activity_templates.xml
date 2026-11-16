@@ -6,12 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/bg_color">
 
-    <!-- Заголовок -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Галерея шаблонов"
+        android:text="Шаблоны"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="@color/text_black"
@@ -19,7 +18,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- Кнопка Назад -->
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="48dp"
@@ -31,7 +29,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Сетка карточек -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"

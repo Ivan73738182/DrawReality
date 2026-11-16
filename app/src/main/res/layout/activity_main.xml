@@ -35,7 +35,7 @@
                 android:orientation="horizontal"
                 android:layout_marginBottom="24dp">
                 
-                <!-- Карточка "Из Галереи" -->
+                <!-- Карточка "Шаблоны" -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/galleryCard"
                     android:layout_width="0dp"
@@ -54,7 +54,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Из Галереи"
+                            android:text="Шаблоны"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_black"/>
