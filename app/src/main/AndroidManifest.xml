@@ -30,7 +30,7 @@
 
         <!-- Экран уроков -->
         <activity
-            android:name=".LessonsActivity"
+            android:name=".HardActivity"
             android:screenOrientation="portrait" />
 
         <!-- Экран профиля -->

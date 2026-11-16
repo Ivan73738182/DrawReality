@@ -3,9 +3,9 @@ package com.ivan.games.drawreality
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
-class LessonsActivity : AppCompatActivity() {
+class HardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lessons)
+        setContentView(R.layout.activity_hard)
     }
 }

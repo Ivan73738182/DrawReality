@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Уроки скоро появятся!"
+        android:text="Сложные рисунки скоро появятся!"
         android:textSize="20sp"
         android:textColor="@color/text_black" />
 </LinearLayout>

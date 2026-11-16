@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_draw -> true
                 R.id.nav_lessons -> {
-                    startActivity(Intent(this, LessonsActivity::class.java))
+                    startActivity(Intent(this, HardActivity::class.java))
                     true
                 }
                 R.id.nav_profile -> {
