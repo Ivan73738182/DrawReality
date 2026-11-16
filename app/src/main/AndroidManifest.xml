@@ -25,5 +25,15 @@
             android:name=".CameraActivity"
             android:screenOrientation="portrait" />
 
+        <!-- Экран уроков -->
+        <activity
+            android:name=".LessonsActivity"
+            android:screenOrientation="portrait" />
+
+        <!-- Экран профиля -->
+        <activity
+            android:name=".ProfileActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 </manifest>
