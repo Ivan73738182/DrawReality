@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Настройка нижнего меню
+        // Нижнее меню
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
         bottomNav.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -38,48 +38,64 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CameraActivity::class.java))
         }
 
-        // Кнопка "Из Галереи" (пока открывает выбор фото из памяти)
+        // Кнопка "Из Галереи"
         findViewById<androidx.cardview.widget.CardView>(R.id.galleryCard).setOnClickListener {
-            // TODO: Реализовать выбор фото из галереи телефона
+            // TODO: Выбор фото из памяти телефона
         }
 
-        // --- Настройка горизонтальных списков ---
+        // --- Настройка списков ---
         
-        // Список "Горячий тренд"
+        // "Горячий тренд" (пока пустой, или 1 картинка для вида)
         val rvTrend = findViewById<RecyclerView>(R.id.rvTrend)
-        rvTrend.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvTrend.adapter = TemplateAdapter(listOf(R.drawable.anime_1, R.drawable.anime_2)) // Заглушки
+        setupRecyclerView(rvTrend)
+        rvTrend.adapter = TemplateAdapter(listOf(R.drawable.anime_1)) { imageResId ->
+            openCameraWithImage(imageResId)
+        }
 
-        // Список "Аниме" (наши 8 картинок)
+        // "Аниме" (твои 8 картинок)
         val animeImages = listOf(
             R.drawable.anime_1, R.drawable.anime_2, R.drawable.anime_3,
             R.drawable.anime_4, R.drawable.anime_5, R.drawable.anime_6,
             R.drawable.anime_7, R.drawable.anime_8
         )
         val rvAnime = findViewById<RecyclerView>(R.id.rvAnime)
-        rvAnime.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        setupRecyclerView(rvAnime)
         rvAnime.adapter = TemplateAdapter(animeImages) { imageResId ->
-            // При нажатии на картинку переходим в камеру с этой картинкой
-            val intent = Intent(this, CameraActivity::class.java)
-            intent.putExtra("IMAGE_ID", imageResId)
-            startActivity(intent)
+            openCameraWithImage(imageResId)
         }
 
-        // Список "Милое"
+        // "Милое" (пока пустой)
         val rvCute = findViewById<RecyclerView>(R.id.rvCute)
-        rvCute.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvCute.adapter = TemplateAdapter(listOf(R.drawable.anime_3, R.drawable.anime_4)) // Заглушки
+        setupRecyclerView(rvCute)
+        rvCute.adapter = TemplateAdapter(listOf(R.drawable.anime_2)) { imageResId ->
+            openCameraWithImage(imageResId)
+        }
 
-        // Список "Простые"
+        // "Простые" (пока пустой)
         val rvSimple = findViewById<RecyclerView>(R.id.rvSimple)
-        rvSimple.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        rvSimple.adapter = TemplateAdapter(listOf(R.drawable.anime_5, R.drawable.anime_6)) // Заглушки
+        setupRecyclerView(rvSimple)
+        rvSimple.adapter = TemplateAdapter(listOf(R.drawable.anime_3)) { imageResId ->
+            openCameraWithImage(imageResId)
+        }
     }
 
-    // Адаптер для горизонтальных списков
+    // Функция для настройки плавности RecyclerView
+    private fun setupRecyclerView(recyclerView: RecyclerView) {
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        recyclerView.setHasFixedSize(true) // Отключает пересчет размеров при прокрутке
+        recyclerView.itemAnimator = null // Убирает анимации, которые могут вызывать дергание
+        recyclerView.setItemViewCacheSize(20) // Кэширует карточки
+    }
+
+    private fun openCameraWithImage(imageResId: Int) {
+        val intent = Intent(this, CameraActivity::class.java)
+        intent.putExtra("IMAGE_ID", imageResId)
+        startActivity(intent)
+    }
+
     private class TemplateAdapter(
         private val images: List<Int>,
-        private val onClick: ((Int) -> Unit)? = null
+        private val onClick: (Int) -> Unit
     ) : RecyclerView.Adapter<TemplateAdapter.ViewHolder>() {
 
         class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -94,7 +110,7 @@ class MainActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.img.setImageResource(images[position])
             holder.itemView.setOnClickListener {
-                onClick?.invoke(images[position])
+                onClick(images[position])
             }
         }
 
